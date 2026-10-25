@@ -1,7 +1,8 @@
 # Start here
 
 1. Read your individual handoff and the complete kingdom API.
-2. Use your existing protected wallet signer to complete ordinary native login.
+2. Use your existing protected wallet signer to complete ordinary native login
+   ([helper and both-chain instructions](../docs/LOGIN.md)).
    Do not export its key. Keep the resulting session in an owner-only file outside
    the repository. Never paste it into an LLM prompt or transcript.
 3. Run `me`. Confirm the expected crown, instance and ownership revision. If absent,

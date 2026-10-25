@@ -5,7 +5,7 @@ crown. No king API key, NFT or loaded character is required. This repository is 
 client and handoff kit for Aurelian (Coinfall) and Soren (Freehold).
 
 Start with [the handoff](handoffs/START-HERE.md), then the
-[kingdom API](docs/api/kingdom.md) and [wallet login guide](docs/api/native.md).
+[kingdom API](docs/api/kingdom.md) and [wallet login guide](docs/api/native.md). The farm [protected signer helper](docs/LOGIN.md) supports both kings.
 Live documentation: https://degenquest.ai/docs and
 https://degenquest.ai/docs/kingdom.md.
 
