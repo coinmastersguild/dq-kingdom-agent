@@ -1,5 +1,10 @@
 # Start here
 
+Current acceptance status: the deposit and live treasury/tax cycle are complete.
+Begin by observing and reconciling the published receipts. The historical funding
+steps are not a new spending authorization; do not repeat them under new IDs.
+Further strategy spending needs a new finite budget and duration.
+
 Follow [Kings Play Northgard — startup and funded acceptance](KINGS-PLAY-NORTHGARD.md)
 for deposit checks, money buckets, tax-income evidence and spending approvals.
 

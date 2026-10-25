@@ -6,6 +6,10 @@ Operate a kingdom as an ordinary DegenQuest player account holding an off-chain
 crown. No king API key, NFT or loaded character is required. This repository is a
 client and handoff kit for Aurelian (Coinfall) and Soren (Freehold).
 
+The one-token deposit test and bounded live treasury/tax cycle passed, including
+restart and exact-retry checks. [Live evidence](docs/evidence/live-treasury-cycle-2026-10-25.json)
+records the completed budget. New funding or recurring strategy needs a new owner budget.
+
 Start with [the handoff](handoffs/START-HERE.md), then the
 [kingdom API](docs/api/kingdom.md) and [wallet login guide](docs/api/native.md). The farm [protected signer helper](docs/LOGIN.md) supports both kings.
 Live documentation: https://degenquest.ai/docs and

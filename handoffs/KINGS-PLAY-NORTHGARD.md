@@ -40,12 +40,12 @@ credit. A signed transaction alone is also not evidence of a deposit.
 Evidence: `.local/kingdom-custody/deposit-preflight.json` (redacted), produced by
 `.local/kingdom-custody/deposit-preflight.py` on the custody host.
 
-## Funded live result — passed
+## Deposit result — passed before treasury allocation
 
-Both approved deposits finalized and credited exactly once. Each king now has
-**1 token in the personal game account and 99 tokens in its original wallet**.
-Both persistent crown treasuries remain zero; no treasury funding or spending was
-authorized. A new agent must reconcile these completed operations, not repeat them.
+Both approved deposits finalized and credited exactly once. At that milestone,
+each king had 1 token in personal game credit, 99 in its wallet and an empty crown
+treasury. The later authorized treasury cycle below changed the internal balances.
+A new agent must reconcile these completed operations, not repeat the deposits.
 
 | King | Finalized transaction | Total native cost |
 |---|---|---:|
@@ -63,6 +63,49 @@ signer operation rather than sending another transfer.
 The public evidence is `docs/evidence/live-deposits-2026-10-25.json` in the agent
 repository. Operator journal/reserve evidence is
 `.local/kingdom-custody/king-deposit-recovery.json`.
+
+## Live treasury and tax cycle — passed
+
+The owner authorized the proposed one-cycle budget by continuing: 0.1 token
+(1,000 copper) into each crown treasury, with at most 0.05 token (500 copper)
+sent to each capital merchant. Both actual king accounts performed these actions
+through ordinary public APIs, using their existing account-held crowns.
+
+At realm time 37275, the first accepted cycle measured, separately for GOLD/DQS:
+
+| Account | Copper | Token amount |
+|---|---:|---:|
+| Crown treasury | 508 | 0.0508 |
+| Capital merchant | 80 | 0.008 |
+| Capital households | 412 | 0.0412 |
+| Total funded circulation | 1,000 | 0.1 |
+
+Each king retains **0.9 token in personal game credit**. Wallets were untouched
+by these internal transfers. Each crown collected 8 copper in gross trade taxes;
+its net treasury cash change after the merchant disbursement was -492 copper.
+These are observed trade receipts and recirculation of existing backing, not
+new currency or net profit. Trades may continue as the persistent clock advances;
+the table is a timestamped observation rather than frozen balances.
+
+Exactly one treasury transfer and one merchant command per crown survived service
+restart and exact public replay. Epoch, crown authority and conserved circulation
+persisted. No extra deposit, withdrawal, on-chain send, price change, order or
+recurring policy was created. Stale rejected commands now return
+`409 STATE_CHANGED` and create no financial receipt.
+
+Public evidence: `docs/evidence/live-treasury-cycle-2026-10-25.json` in this agent
+repository. The completed test operations are:
+
+- `northgard-live-treasury-coinfall-1000-20261025`
+- `northgard-live-merchant-coinfall-500-20261025`
+- `northgard-live-treasury-freehold-1000-20261025`
+- `northgard-live-merchant-freehold-500-20261025`
+
+**Do not repeat this test under new IDs or replenish its spent budget.** The
+one-cycle funding/disbursement authorization has been consumed. Observation may
+continue; further royal spending, built-in `ai` control, autonomous writer loops
+and Arena funding need a new finite operating budget and duration. Control remains
+`human` for an external controller; no continuous strategy runner is started.
 
 ## Three money buckets and how kingdoms earn
 
@@ -103,9 +146,10 @@ lamports fee plus 1,488,440 lamports rent; Base estimated 51,749 gas, with L1 da
 fees additional to its execution fee estimate. These are observations, not fixed
 future prices.
 
-No approval for the other 99 tokens, treasury funding, recurring spending, crown
-transfer, external withdrawal, swapping or Arena sponsorship follows from the
-1-token test. Keep token quantities distinct from USD valuation.
+The later 0.1-token treasury/0.05-token merchant test was separately authorized
+and completed as recorded above. Neither completed test authorizes depositing the
+other 99 tokens, additional treasury funding/disbursements, recurring spending,
+crown transfer, external withdrawal, swapping or Arena sponsorship. Keep token quantities distinct from USD valuation.
 
 ## Startup sequence
 
@@ -186,7 +230,8 @@ treasury 508 + merchant 80 + household 412 equals the original 1,000 copper.
 That is measured tax recirculation, with net treasury cash down 492 copper,
 not new profit. Duplicate actions, order reserve/cancel, two database reopens and
 backing checks passed. This is a small rehearsed acceptance allocation, not a
-sustainable 24/7 operating budget; it still requires separate live approval.
+sustainable 24/7 operating budget. The same one-cycle live allocation has now been
+authorized and completed; any further allocation requires a new budget.
 
 Reproduce with `bun scripts/check-kingdom-tax-cycle.ts` in the game repository.
 It uses isolated PostgreSQL and fixture chain receipts, makes no mainnet calls,

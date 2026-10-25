@@ -1,0 +1,311 @@
+{
+  "schema": "dq-public-live-treasury-cycle-v1",
+  "date": "2026-10-25",
+  "passed": true,
+  "realm": "blockreach-live",
+  "contentHash": "02194d29cc3364f1b7335c4c810d1785afb0c442dee7b4f7dbbd494b558bd860",
+  "buildHash": "44aa68f2bf8acd131a899d111e09a7317ea86c8db89ed78e6a1d62af0d094ec4",
+  "observedAtRealmTime": 37275,
+  "eventCursorBeforeFunding": "7460",
+  "eventCursorAtObservation": "7468",
+  "approvedBudget": {
+    "treasuryCopperPerCrown": 1000,
+    "capitalMerchantCopperPerCrown": 500,
+    "externalTransactions": 0,
+    "recurringPolicy": false
+  },
+  "circulatingCopper": {
+    "GOLD": 1000,
+    "DQS": 1000
+  },
+  "moneyBucketsCopper": {
+    "treasuries": {
+      "GOLD": 508,
+      "DQS": 508
+    },
+    "merchants": {
+      "GOLD": 80,
+      "DQS": 80
+    },
+    "households": {
+      "GOLD": 412,
+      "DQS": 412
+    },
+    "players": {
+      "GOLD": 0,
+      "DQS": 0
+    },
+    "foodSupport": {
+      "GOLD": 0,
+      "DQS": 0
+    },
+    "orders": {
+      "GOLD": 0,
+      "DQS": 0
+    },
+    "caravans": {
+      "GOLD": 0,
+      "DQS": 0
+    }
+  },
+  "liabilityAtomic": {
+    "GOLD": "1000000000000000000",
+    "DQS": "100000000"
+  },
+  "taxReceipts": [
+    {
+      "sequence": "7464",
+      "event": {
+        "at": 37265,
+        "type": "market-traded",
+        "detail": {
+          "tax": 8,
+          "side": "merchant-bought",
+          "order": null,
+          "copper": 420,
+          "currency": "GOLD",
+          "quantity": 4,
+          "resource": "food",
+          "household": "coinfall-villager-22"
+        },
+        "subject": "coinfall",
+        "audience": [
+          "coinfall",
+          "freehold",
+          "hold-cinderhollow",
+          "hold-dawnmere",
+          "hold-elderwood",
+          "hold-frostveil",
+          "hold-silverrun",
+          "hold-stillwater",
+          "hold-sunhaven",
+          "hold-swamp",
+          "hold-windrest"
+        ]
+      }
+    },
+    {
+      "sequence": "7468",
+      "event": {
+        "at": 37275,
+        "type": "market-traded",
+        "detail": {
+          "tax": 8,
+          "side": "merchant-bought",
+          "order": null,
+          "copper": 420,
+          "currency": "DQS",
+          "quantity": 4,
+          "resource": "food",
+          "household": "freehold-villager-20"
+        },
+        "subject": "freehold",
+        "audience": [
+          "coinfall",
+          "freehold",
+          "hold-cinderhollow",
+          "hold-dawnmere",
+          "hold-elderwood",
+          "hold-frostveil",
+          "hold-silverrun",
+          "hold-stillwater",
+          "hold-sunhaven",
+          "hold-swamp",
+          "hold-windrest"
+        ]
+      }
+    }
+  ],
+  "kings": {
+    "aurelian": {
+      "crown": "coinfall",
+      "currency": "GOLD",
+      "availableAtomic": "900000000000000000",
+      "grossTaxesCopper": {
+        "GOLD": 8,
+        "DQS": 0
+      },
+      "availableTreasury": {
+        "DQS": 0,
+        "GOLD": 508
+      },
+      "operations": [
+        {
+          "id": "realm-blockreach-live-northgard-live-treasury-coinfall-1000-20261025",
+          "request": {
+            "id": "northgard-live-treasury-coinfall-1000-20261025",
+            "crown": "coinfall",
+            "authorityRevision": 1,
+            "currency": "GOLD",
+            "copper": 1000
+          },
+          "receipt": {
+            "accepted": true,
+            "id": "realm-blockreach-live-northgard-live-treasury-coinfall-1000-20261025",
+            "revision": 7462
+          },
+          "duplicateStable": true
+        },
+        {
+          "id": "realm-command-blockreach-live-northgard-live-merchant-coinfall-500-20261025",
+          "request": {
+            "id": "northgard-live-merchant-coinfall-500-20261025",
+            "crown": "coinfall",
+            "authorityRevision": 1,
+            "expectedRevision": 7462,
+            "intent": {
+              "type": "market-fund",
+              "settlement": "coinfall",
+              "currency": "GOLD",
+              "copper": 500
+            }
+          },
+          "receipt": {
+            "accepted": true,
+            "id": "realm-command-blockreach-live-northgard-live-merchant-coinfall-500-20261025",
+            "revision": 7463,
+            "events": [
+              {
+                "at": 37260,
+                "type": "merchant-funded",
+                "subject": "coinfall",
+                "detail": {
+                  "from": "coinfall",
+                  "currency": "GOLD",
+                  "copper": 500
+                },
+                "audience": [
+                  "coinfall",
+                  "freehold",
+                  "hold-cinderhollow",
+                  "hold-dawnmere",
+                  "hold-elderwood",
+                  "hold-frostveil",
+                  "hold-silverrun",
+                  "hold-stillwater",
+                  "hold-sunhaven",
+                  "hold-swamp",
+                  "hold-windrest"
+                ]
+              }
+            ]
+          },
+          "duplicateStable": true
+        }
+      ]
+    },
+    "soren": {
+      "crown": "freehold",
+      "currency": "DQS",
+      "availableAtomic": "90000000",
+      "grossTaxesCopper": {
+        "GOLD": 0,
+        "DQS": 8
+      },
+      "availableTreasury": {
+        "DQS": 508,
+        "GOLD": 0
+      },
+      "operations": [
+        {
+          "id": "realm-blockreach-live-northgard-live-treasury-freehold-1000-20261025",
+          "request": {
+            "id": "northgard-live-treasury-freehold-1000-20261025",
+            "crown": "freehold",
+            "authorityRevision": 1,
+            "currency": "DQS",
+            "copper": 1000
+          },
+          "receipt": {
+            "accepted": true,
+            "id": "realm-blockreach-live-northgard-live-treasury-freehold-1000-20261025",
+            "revision": 7466
+          },
+          "duplicateStable": true
+        },
+        {
+          "id": "realm-command-blockreach-live-northgard-live-merchant-freehold-500-20261025",
+          "request": {
+            "id": "northgard-live-merchant-freehold-500-20261025",
+            "crown": "freehold",
+            "authorityRevision": 1,
+            "expectedRevision": 7466,
+            "intent": {
+              "type": "market-fund",
+              "settlement": "freehold",
+              "currency": "DQS",
+              "copper": 500
+            }
+          },
+          "receipt": {
+            "accepted": true,
+            "id": "realm-command-blockreach-live-northgard-live-merchant-freehold-500-20261025",
+            "revision": 7467,
+            "events": [
+              {
+                "at": 37270,
+                "type": "merchant-funded",
+                "subject": "freehold",
+                "detail": {
+                  "from": "freehold",
+                  "currency": "DQS",
+                  "copper": 500
+                },
+                "audience": [
+                  "coinfall",
+                  "freehold",
+                  "hold-cinderhollow",
+                  "hold-dawnmere",
+                  "hold-elderwood",
+                  "hold-frostveil",
+                  "hold-silverrun",
+                  "hold-stillwater",
+                  "hold-sunhaven",
+                  "hold-swamp",
+                  "hold-windrest"
+                ]
+              }
+            ]
+          },
+          "duplicateStable": true
+        }
+      ]
+    }
+  },
+  "recovery": {
+    "passed": true,
+    "timeBefore": 37505,
+    "timeAfter": 37515,
+    "fundingOperationsPerCrown": 1,
+    "merchantOperationsPerCrown": 1,
+    "externalTransactionsCreated": 0
+  },
+  "publicProtocol": {
+    "schema": "dq-live-treasury-protocol-recovery-v1",
+    "passed": true,
+    "reports": [
+      {
+        "king": "aurelian",
+        "crown": "coinfall",
+        "receiptReplayAfterRestart": true,
+        "staleRevisionCode": "STATE_CHANGED",
+        "staleCommandCreatedReceipt": false,
+        "personalBalanceUnchanged": true,
+        "availableAtomic": "900000000000000000"
+      },
+      {
+        "king": "soren",
+        "crown": "freehold",
+        "receiptReplayAfterRestart": true,
+        "staleRevisionCode": "STATE_CHANGED",
+        "staleCommandCreatedReceipt": false,
+        "personalBalanceUnchanged": true,
+        "availableAtomic": "90000000"
+      }
+    ],
+    "newFundingOperations": 0,
+    "externalTransactions": 0
+  },
+  "recurringPolicyStarted": false,
+  "interpretation": "Taxes recirculate the approved merchant funding; this is gross treasury revenue, not net profit or new issuance."
+}

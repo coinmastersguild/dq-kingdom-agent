@@ -14,6 +14,12 @@ assume acceptance means sovereign control. No funds are promised by this handoff
 Do not transfer the crown, withdraw externally or invent new royal authority.
 
 Startup test completed on 2026-10-25: 1 token was deposited and credited once;
-99 remain in the wallet and the crown treasury remains zero. Reconcile the
+99 remained in the wallet and the crown treasury was zero at that milestone. Reconcile the
 [completed test evidence](../docs/evidence/live-deposits-2026-10-25.json); do not
 repeat this deposit or fund the treasury without a new owner budget.
+
+The separately authorized live treasury cycle also passed: 0.1 token funded the
+crown, with a single 0.05-token capital merchant payment. At its acceptance
+snapshot, personal game credit was 0.9 token and treasury was 0.0508 token after
+8 copper tax. Read [the live cycle evidence](../docs/evidence/live-treasury-cycle-2026-10-25.json).
+Do not repeat these operations or start recurring spending without a new budget.

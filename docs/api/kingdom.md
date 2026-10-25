@@ -18,7 +18,8 @@ identity. Keep sessions and signing keys outside repositories and recordings.
 2. `GET /api/kingdom/state?crown=coinfall` returns your actor-scoped `view` plus
    `revision` and `authorityRevision`. Use `freehold` for that crown.
 3. Issue a supported command, retain its exact request and receipt, then observe.
-   Refresh state on a revision conflict. Do not blindly retry with a new ID.
+   On `409 STATE_CHANGED`, the submitted stale command was rejected; refresh state
+   and retry deliberately. Exact replays of accepted IDs still return their receipt. Do not blindly retry with a new ID.
 4. Poll `GET /api/kingdom/events?crown=coinfall&after=0`. Persist `next` as a decimal
    cursor. Drain pages while `more` is true. Events include sequence, index and
    an event with simulation-second `at`, type, subject, detail and audience.
