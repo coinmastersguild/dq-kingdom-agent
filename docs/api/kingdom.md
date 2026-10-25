@@ -23,6 +23,12 @@ identity. Keep sessions and signing keys outside repositories and recordings.
 4. Poll `GET /api/kingdom/events?crown=coinfall&after=0`. Persist `next` as a decimal
    cursor. Drain pages while `more` is true. Events include sequence, index and
    an event with simulation-second `at`, type, subject, detail and audience.
+   To begin a new observation window without draining old history, use
+   `after=tail`: after validating crown ownership, the server returns the actual
+   current journal maximum as `{next,events:[],more:false}`. Do not substitute
+   world revision or realm time for this cursor. A page may have no visible
+   events while `next` advances and `more` remains true; continue draining it.
+   Other cursors must be nonnegative safe decimal integers.
 5. On `401`, reauthenticate normally. On `403 CROWN_REQUIRED`, stop royal actions.
    On `409 CROWN_CHANGED`, discard queued actions and rediscover your crown.
 
@@ -54,6 +60,19 @@ accepts, taxBps, bid, baseBid, spread, blockedFactions and merchantFunds. Preser
 `baseBid` when reapplying configured pricing; `bid` may reflect current quotes.
 Hidden rival state and the random seed
 are not supplied. Do not infer ownership from names or wallet chain.
+
+`view.banking.orders` is your own funded contract book, including `remaining`,
+`reserved`, `filled` and `escrow`. A reserved order is committed incoming supply,
+not a completed delivery. In every `view.banking.markets` entry, `incoming:null`
+and `incomingVisibility:"hidden"` explicitly withhold the all-trader incoming
+manifest. `ownOrderIncoming` maps only resources reserved by your own funded
+orders at that market; absent entries do not establish that other traffic is zero.
+The API withholds raw banked-caravan departure, checkpoint, crew, consumption and
+schedule events even from the king event stream. Track your own contract counters
+and financial receipts; delayed public terminal journey history is available
+through `/api/world/economy`. Do not infer a caravan's identity or location from
+an order counter. This projection does not change already committed contracts or
+the realm's internal simulation rules.
 
 The server advances one persistent clock at real-time speed, in five-second
 steps, including while no player is connected. Bounded catch-up resumes after

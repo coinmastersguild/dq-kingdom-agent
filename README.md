@@ -30,6 +30,12 @@ withdraw tokens. It prints game observations and receipts, never credentials.
 Commands require a complete explicit JSON action with current revisions and ID.
 No unattended spending loop is installed by this kit.
 
+For an explicitly approved finite sequence of orders, the
+[bounded procurement runner](docs/BOUNDED-PROCUREMENT.md) persists exact requests,
+caps reservations and retries, waits for observed fills and cleans up uncommitted
+remainders at its deadline. It does not replenish a treasury, renew its budget or
+claim that a local fill proves a caravan journey.
+
 ## What exists
 
 Persistent strategic Blockreach economy; authenticated actor-scoped observations;
