@@ -1,5 +1,9 @@
 # Kings Play Northgard — startup and funded acceptance
 
+**Read the [bounded-run follow-up](BOUNDED-RUN-FOLLOWUP.md) before starting.**
+Balances below describe earlier acceptance snapshots, not current spendable
+balances. Read the authenticated API and reconcile completed receipts first.
+
 Owner handoff, 2026-10-25. The epic is **Kings Play Northgard** (also referred to as
 “northgaurd”). Aurelian and Soren compete as economic rulers in persistent
 Blockreach. They should develop production, trade, food security and treasury
