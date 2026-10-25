@@ -1,0 +1,10 @@
+node_modules/
+.secrets/
+.env
+.env.*
+state/
+recordings/
+*.key
+*.pem
+session*.json
+session*.txt
