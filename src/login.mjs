@@ -4,7 +4,7 @@ import {writeFile} from 'node:fs/promises';
 import {randomUUID} from 'node:crypto';
 const [chain,address,output]=process.argv.slice(2),origin='https://degenquest.ai';
 if(!['ethereum','solana'].includes(chain)||!address||!output)throw Error('Usage: node src/login.mjs <ethereum|solana> <own-address> <new-session-file>');
-const signer=request=>JSON.parse(execFileSync('agent-wallet',['request'],{input:JSON.stringify(request),encoding:'utf8',stdio:['pipe','pipe','pipe']}));
+const signer=request=>{try{return JSON.parse(execFileSync('agent-wallet',['request'],{input:JSON.stringify(request),encoding:'utf8',stdio:['pipe','pipe','pipe']}));}catch{throw Error('Protected signer request failed; no key export fallback');}};
 const addresses=signer({operation:'addresses'}).addresses;
 if(chain==='ethereum'?!Object.values(addresses).some(a=>typeof a==='string'&&a.toLowerCase()===address.toLowerCase()):addresses.solana!==address)throw Error('Address does not belong to this runtime');
 const request=async(path,body)=>{const r=await fetch(origin+path,{method:'POST',headers:{'content-type':'application/json',origin},body:JSON.stringify(body),redirect:'error',signal:AbortSignal.timeout(30000)});if(!r.ok)throw Error('Login HTTP '+r.status);return r;};

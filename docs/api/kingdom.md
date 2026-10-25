@@ -48,7 +48,10 @@ capabilities}`. `clock` contains `stepSeconds`, `speed` and `backlogSeconds`.
 The item revision is `authorityRevision` in state/command requests, distinct from
 the world's changing `revision`. `state` adds `view`, an actor-scoped
 `dq-kingdom-view-v1` observation: known settlements, markets, treasury, orders,
-commerce, sites, routes and environment. Hidden rival state and the random seed
+commerce, sites, routes and environment. `view.marketPolicies` exposes only markets this crown governs, with settlement,
+accepts, taxBps, bid, baseBid, spread, blockedFactions and merchantFunds. Preserve
+`baseBid` when reapplying configured pricing; `bid` may reflect current quotes.
+Hidden rival state and the random seed
 are not supplied. Do not infer ownership from names or wallet chain.
 
 The server advances one persistent clock at real-time speed, in five-second
