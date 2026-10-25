@@ -1,5 +1,8 @@
 # Start here
 
+Follow [Kings Play Northgard — startup and funded acceptance](KINGS-PLAY-NORTHGARD.md)
+for deposit checks, money buckets, tax-income evidence and spending approvals.
+
 1. Read your individual handoff and the complete kingdom API.
 2. Use your existing protected wallet signer to complete ordinary native login
    ([helper and both-chain instructions](../docs/LOGIN.md)).
@@ -22,3 +25,15 @@
 
 This handoff prepares agents to run; publishing the repository does not itself
 start a farm agent, install a recurring job or authorize unlimited spending.
+
+For a bounded first observation run (no spending), after login:
+
+```sh
+DQ_SESSION_FILE=/secure/path/king-session.txt node src/observe.mjs coinfall /secure/state/aurelian 900 15
+```
+
+Soren uses `freehold` and his own state/session paths. A live lock prevents two
+observers from sharing the same cursor directory. After an unclean exit, verify
+the recorded process is gone before removing its stale `observe.lock`. Private
+JSON/NDJSON state contains only permitted game observations; keep it out of git.
+Tax counters summarize observed `tax` events and are not an audited profit total.

@@ -1,5 +1,7 @@
 # DegenQuest Kingdom Agent
 
+The epic is **Kings Play Northgard**. Read the [funded startup handoff](handoffs/KINGS-PLAY-NORTHGARD.md).
+
 Operate a kingdom as an ordinary DegenQuest player account holding an off-chain
 crown. No king API key, NFT or loaded character is required. This repository is a
 client and handoff kit for Aurelian (Coinfall) and Soren (Freehold).

@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "scope": "Isolated PostgreSQL, actual received Blockreach geography/rules, fixture finalized deposits only. No mainnet calls, signers, live accounts, live world, archived review or public data modified.",
+  "realm": "blockreach-tax-rehearsal",
+  "seed": 50,
+  "epoch": 1792946860003,
+  "definitionHash": "02194d29cc3364f1b7335c4c810d1785afb0c442dee7b4f7dbbd494b558bd860",
+  "implementationHash": "44aa68f2bf8acd131a899d111e09a7317ea86c8db89ed78e6a1d62af0d094ec4",
+  "seconds": 5,
+  "checks": [
+    "Only two exact finalized fixture token receipts issue personal credit; duplicate proofs/funding/commands do not repeat",
+    "Both ordinary crown APIs fund 1000 copper, reserve and cancel an order once, and fund a capital merchant with 500 copper",
+    "Committed ownership, money, command and funding receipts survive isolated PostgreSQL reopen",
+    "Actual household production/trades collect positive tax in each crown treasury; tax events exactly explain treasury growth",
+    "Repeated clock boundary and restart never repeat harvests, tax or money",
+    "Independent per-currency circulation, ledger replay and backing remain exact; no extra issuance or withdrawal jobs"
+  ],
+  "capitals": {
+    "coinfall": {
+      "currency": "GOLD",
+      "fixtureDepositTokens": 1,
+      "treasuryFundedCopper": 1000,
+      "merchantDisbursementCopper": 500,
+      "grossTaxesCopper": {
+        "GOLD": 8,
+        "DQS": 0
+      },
+      "availableTreasury": {
+        "DQS": 0,
+        "GOLD": 508
+      },
+      "netTreasuryCashChangeCopper": -492,
+      "merchantMoney": {
+        "DQS": 0,
+        "GOLD": 80
+      },
+      "capitalPopulation": 60
+    },
+    "freehold": {
+      "currency": "DQS",
+      "fixtureDepositTokens": 1,
+      "treasuryFundedCopper": 1000,
+      "merchantDisbursementCopper": 500,
+      "grossTaxesCopper": {
+        "GOLD": 0,
+        "DQS": 8
+      },
+      "availableTreasury": {
+        "DQS": 508,
+        "GOLD": 0
+      },
+      "netTreasuryCashChangeCopper": -492,
+      "merchantMoney": {
+        "DQS": 80,
+        "GOLD": 0
+      },
+      "capitalPopulation": 60
+    }
+  },
+  "audits": {
+    "GOLD": {
+      "currency": "GOLD",
+      "entries": 2,
+      "liability": "1000000000000000000"
+    },
+    "DQS": {
+      "currency": "DQS",
+      "entries": 2,
+      "liability": "100000000"
+    }
+  },
+  "restarts": 2,
+  "transactionsBroadcast": 0,
+  "interpretation": "Positive gross tax is recirculation of explicitly disbursed funds, not net king profit or external revenue. Treasury cash remains below initial funding after merchant support.",
+  "recommendation": {
+    "treasuryPerKingTokens": "0.1",
+    "treasuryPerKingCopper": 1000,
+    "firstMerchantDisbursementTokens": "0.05",
+    "firstMerchantDisbursementCopper": 500,
+    "remainingPersonalTokens": "0.9",
+    "scope": "Small one-cycle live acceptance budget only, not a sustainable 24/7 operating budget. Requires separate explicit approval."
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schema": "dq-king-deposit-preflight-v1",
+  "passed": true,
+  "reports": [
+    {
+      "king": "aurelian",
+      "crown": "coinfall",
+      "currency": "GOLD",
+      "personalAvailableAtomic": "0",
+      "requestAmountTokens": "1",
+      "copperEquivalent": 10000,
+      "chain": {
+        "network": "Base 8453",
+        "token": "0x2218b3908B2f33B75241397a26fB27383cd8B35c",
+        "custody": "0xF8671E136DdCd58b41954B02e4D72dd6E470E980",
+        "source": "0x1a6aaE5495962C8F04f4A069a4cf59006416c541",
+        "onChainTokenAtomic": "100000000000000000000",
+        "nativeGasAtomic": "2134004000000000",
+        "estimatedGas": "51749",
+        "l2MaxExecutionFeeAtomic": "569239000000",
+        "note": "Base L1 data fees are additional; protected signer must enforce total fee cap",
+        "simulationPassed": true
+      },
+      "transactionSigned": false,
+      "transactionBroadcast": false
+    },
+    {
+      "king": "soren",
+      "crown": "freehold",
+      "currency": "DQS",
+      "personalAvailableAtomic": "0",
+      "requestAmountTokens": "1",
+      "copperEquivalent": 10000,
+      "chain": {
+        "network": "Solana mainnet",
+        "token": "2kma6VS71GtVthg7eg7nm1r3HCDLEeXWPtVWbsH5dyZg",
+        "custody": "8wtDFZyKZZfNNpSfWV8SqyT1szdxC4E3yBAoa6rmP7gY",
+        "source": "AqhSdQFtKjB6yCJEgoHQm3gDyFS9RLxGB4QAS4FKx7Ax",
+        "sourceATA": "4JykXngkZM9NcDLRkLck8BZ3Rj9MXpyJwQPvSoQHPq8d",
+        "custodyATA": "asC3GvRMLTMTw1Lcw55NPyoVM8REdeHZkRj52rhCTHf",
+        "onChainTokenAtomic": "10000000000",
+        "nativeGasAtomic": "249308988",
+        "feeAtomic": "5000",
+        "ataRentAtomic": "1488440",
+        "totalFeeAndRentAtomic": "1493440",
+        "simulationPassed": true,
+        "unitsConsumed": 13623
+      },
+      "transactionSigned": false,
+      "transactionBroadcast": false
+    }
+  ]
+}

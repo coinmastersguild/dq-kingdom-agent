@@ -1,0 +1,47 @@
+{
+  "schema": "dq-public-king-deposit-evidence-v1",
+  "date": "2026-10-25",
+  "fundedDepositPassed": true,
+  "scope": "One real token per king only; no treasury allocation or other deposits authorized.",
+  "kings": {
+    "aurelian": {
+      "crown": "coinfall",
+      "currency": "GOLD",
+      "wallet": "0x1a6aaE5495962C8F04f4A069a4cf59006416c541",
+      "operationId": "dq-northgard-deposit-aurelian-1-20261025",
+      "txHash": "0xb3898547b557862283db3899f8f9f2c1cf0a38f4f92948f618e3c2efea00f8c5",
+      "depositId": "deposit-047ab05ec9b8bbcb96da40d7924c01c05888b234d2f00fd3395d2713678f2375",
+      "amountAtomic": "1000000000000000000",
+      "availableAtomic": "1000000000000000000",
+      "duplicateStable": true,
+      "treasuryUnchanged": true,
+      "nativeCosts": {
+        "execution_fee_wei": 308136000000,
+        "l1_fee_wei": 443411624,
+        "network_fee_wei": 308579411624
+      },
+      "remainingWalletTokens": "99"
+    },
+    "soren": {
+      "crown": "freehold",
+      "currency": "DQS",
+      "wallet": "AqhSdQFtKjB6yCJEgoHQm3gDyFS9RLxGB4QAS4FKx7Ax",
+      "operationId": "dq-northgard-deposit-soren-1-20261025",
+      "txHash": "64h7FLuhdWpcjzLGtG8HWfsFeTt2SHttiziLyzvgDM3ASuYTFsRmHYXyYBbUR1sQFR77NdoYaAoJZbZEqsMfwBba",
+      "depositId": "deposit-77f2cda34dba9374b121f6f3a75746abbf7c92088b0863628327b4814f48c56c",
+      "amountAtomic": "100000000",
+      "availableAtomic": "100000000",
+      "duplicateStable": true,
+      "treasuryUnchanged": true,
+      "nativeCosts": {
+        "network_fee_lamports": 5000,
+        "sol_balance_delta_lamports": -1493440,
+        "sol_non_fee_delta_lamports": -1488440,
+        "token_deltas_base_units": {
+          "2kma6VS71GtVthg7eg7nm1r3HCDLEeXWPtVWbsH5dyZg": -100000000
+        }
+      },
+      "remainingWalletTokens": "99"
+    }
+  }
+}

@@ -12,3 +12,8 @@ then propose a finite budget for sustainable merchant liquidity and food support
 GOLD is Coinfall's issued currency; DQS may be held/traded when accepted. Do not
 assume acceptance means sovereign control. No funds are promised by this handoff.
 Do not transfer the crown, withdraw externally or invent new royal authority.
+
+Startup test completed on 2026-10-25: 1 token was deposited and credited once;
+99 remain in the wallet and the crown treasury remains zero. Reconcile the
+[completed test evidence](../docs/evidence/live-deposits-2026-10-25.json); do not
+repeat this deposit or fund the treasury without a new owner budget.

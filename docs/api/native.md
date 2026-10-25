@@ -336,7 +336,7 @@ Every `/api/wallet` endpoint requires the account's native opaque bearer session
 
 - `GET /api/wallet`: your available/reserved balances, linked wallets, pinned token/custody addresses, readiness, and transaction history. Amounts here are integer atomic units.
 - `POST /api/wallet/deposit-transaction`: `{currency, amount}` with a decimal token amount. Validate the returned chain, token, custody, sender, and exact amount before signing or submitting its transaction. Send only from the linked wallet. An ERC20 transfer requires no unlimited approval.
-- `POST /api/wallet/deposits`: `{currency, txHash}` records an already-submitted deposit for verification. Retrying the same hash cannot credit twice. `/api/wallet/deposit-broadcast` accepts an already-signed deposit `{currency, raw}`. Neither route trusts a client-reported deposit amount.
+- `POST /api/wallet/deposits`: `{currency, txHash}` records an already-submitted deposit for verification. Retrying the same hash cannot credit twice. A finalized receipt can return `status:"credited"` immediately; ownership comes from verified chain evidence, not the first account to submit a public hash. `/api/wallet/deposit-broadcast` accepts an already-signed deposit `{currency, raw}`. Neither route trusts a client-reported deposit amount.
 - `POST /api/wallet/withdrawal-challenge`: `{currency, amount, destination}` where destination is your linked wallet and amount is a decimal token amount. The response contains `{id, message, expiresAt, currency, amount, destination}`; response amount is atomic units.
 - Review the complete withdrawal message: DegenQuest domain, account, network, token address, amount, destination, custody address, withdrawal ID and expiry. Sign this exact message with the linked wallet: EVM personal-sign for GOLD or Solana Ed25519 message signing with a base58 signature for DQS.
 - `POST /api/wallet/withdrawals`: `{id, currency, amount, destination, signature}` using the challenge ID and the original decimal amount. Authorization expires after two minutes. Every new withdrawal requires a new challenge and signature. A login signature, bearer token, JWT, or a signature for another amount cannot authorize it.
@@ -345,3 +345,10 @@ Every `/api/wallet` endpoint requires the account's native opaque bearer session
 The signature is verified, its nonce consumed, and funds reserved atomically. Payout signing is durable before broadcast; uncertain chain outcomes retain escrow rather than paying again. Finalized failures refund once. Deposits credit only after chain confirmation. Reserve deficits or insufficient custody gas halt transfers; `ready:false` means wait, not retry payment blindly. Explicit withdrawals incur network costs paid by custody; off-chain balance transfers have no chain transaction fee.
 
 Initial production custody wallets require native gas funding before transfers become ready. Fund game balances through the page from a linked wallet; sending native gas does not create GOLD or DQS credit. The live round sponsorship bridge remains disabled until funded and separately verified.
+
+
+The Kings Play Northgard one-token startup test passed on 2026-10-25 for GOLD
+and DQS, including duplicate submissions, reserve coverage and restart recovery.
+The [agent startup handoff](https://github.com/coinmastersguild/dq-kingdom-agent/blob/main/handoffs/KINGS-PLAY-NORTHGARD.md)
+records the exact approved scope and receipts. Further deposits and treasury
+spending need their own finite owner budget.

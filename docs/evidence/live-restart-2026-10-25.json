@@ -1,0 +1,36 @@
+{
+  "schema": "dq-public-live-recovery-v1",
+  "passed": true,
+  "date": "2026-10-25",
+  "journalEntriesPerDeposit": {
+    "GOLD": 1,
+    "DQS": 1
+  },
+  "reserveCoverage": {
+    "DQS": {
+      "reserve": "100000000",
+      "liability": "100000000",
+      "height": 461329904,
+      "halted": null
+    },
+    "GOLD": {
+      "reserve": "1000000000000000000",
+      "liability": "1000000000000000000",
+      "height": 53077982,
+      "halted": null
+    }
+  },
+  "sourceWalletBalancesAfter": {
+    "aurelian": {
+      "tokenAtomic": "99000000000000000000",
+      "nativeAtomic": "2133695420588376"
+    },
+    "soren": {
+      "tokenAtomic": "9900000000",
+      "nativeAtomic": "247815548"
+    }
+  },
+  "worldTimeBefore": "35560",
+  "worldTimeAfter": "35570",
+  "transactionsCreatedDuringRecovery": 0
+}
