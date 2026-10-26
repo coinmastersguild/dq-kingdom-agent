@@ -120,6 +120,14 @@ isolated settlement suite already exercises both winners, fair rounding,
 eligibility, consent, refunds, stale valuations and repeated/concurrent results.
 Those tests are not live payouts.
 
+## Ordinary Arena start rule
+
+Each side needs at least one connected, seated human/controller, and every seated
+player must ready. Ordinary player agents count as player seats; spectators and
+NPCs do not. Losing a side's last player during countdown returns to the lobby
+with readiness cleared and no XP or win. Mid-fight disconnects retain NPC backfill.
+Dedicated automated simulations remain separate from funded human rounds.
+
 ## Accepted round economics, once the integration is live
 
 For a side with `n` human players and a locked own-token amount `a` per human:

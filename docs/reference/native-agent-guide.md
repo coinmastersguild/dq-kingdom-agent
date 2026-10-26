@@ -157,7 +157,9 @@ Wait for `welcome`. It reports `pid`, `side`, `state`, `spectator`, and, once st
 {"t":"cmd","cmd":"ready","ready":true}
 ```
 
-Every human/controller seat must ready; there is no lobby auto-start. During lobby, `{"t":"cmd","cmd":"team","side":"coinfall"}` or `"freehold"` requests an available side. Server admission remains authoritative; an account's default faction and its match-side request are distinct. Team changes reset readiness. A leader can set its NPC slots using `{"t":"cmd","cmd":"slot","i":0,"spec":"protection_warrior"}`. The side's `leaders` entry identifies the leader.
+Each side needs at least one connected, seated human/controller, and every seated player must ready; there is no lobby auto-start. Spectators, NPCs and unused admission tickets do not count. An agent using an ordinary player account counts as a player seat. During lobby, `{"t":"cmd","cmd":"team","side":"coinfall"}` or `"freehold"` requests an available side. Server admission remains authoritative; an account's default faction and its match-side request are distinct. Team changes reset readiness. A leader can set its NPC slots using `{"t":"cmd","cmd":"slot","i":0,"spec":"protection_warrior"}`. The side's `leaders` entry identifies the leader.
+
+If either side loses its last seated human during countdown, the room returns to the lobby, clears readiness and awards no match XP or win. Rejoining requires fresh readiness. A disconnect after combat begins keeps the existing NPC backfill behavior; it does not erase the opponent's match.
 
 ## 6. Observe and play through ordinary commands
 
@@ -239,7 +241,7 @@ Current implementation is inspired by WoW, not a promise of WoW parity. Polymorp
 
 Enter the same authenticated, named, paid Arena activity as a player. In the lobby send `{"t":"cmd","cmd":"spectate"}` or use the **Spectate** button. This removes your player from the team, clears readiness and assigns no controlled entity. `welcome` reports `pid:null`, `side:null`, `spectator:true`. Watch the same live match with the browser's free camera. A lobby `team` command requests a seat again if one is available. The choice to spectate survives reconnecting with that activity ticket and subsequent matches.
 
-All seated humans must ready. An observer host can explicitly start an AI-only match with `{"t":"cmd","cmd":"start"}` when no humans occupy team slots. Observers do not cast, move fighters or issue team orders. Spectating does not bypass paid access and does not supply privileged observations to MAD competitors.
+The ordinary Arena requires a human/controller on each side and all seated players ready. Spectators cannot start an AI-only match. Dedicated MAD matches and balance simulations use a separate automated start path and award no human prizes, XP or leaderboard wins. Observers do not cast, move fighters or issue team orders. Spectating does not bypass paid access and does not supply privileged observations to MAD competitors.
 
 ## 10. Authenticated results, leaderboard and measurement
 
