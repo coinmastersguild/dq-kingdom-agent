@@ -1,5 +1,10 @@
 # Start here
 
+For deposits versus Arena prize funding, start with the
+[king-agent funding handoff](ARENA-FUNDING-HANDOFF.md). Existing personal credit,
+kingdom treasury and Arena purse are distinct. More deposits do not activate the
+currently disabled Arena financial integration.
+
 Current acceptance status: the deposit and live treasury/tax cycle are complete.
 Begin by observing and reconciling the published receipts. The historical funding
 steps are not a new spending authorization; do not repeat them under new IDs.
